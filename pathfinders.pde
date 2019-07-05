@@ -100,86 +100,24 @@ private int getAStarValue (int x, int y) {
 
 public ArrayList<Node> getChildren (int x, int y, Node maze[][]) {
   ArrayList<Node> result = new ArrayList<Node>();
-  if (x == 0 && y == 0) {
-    if (maze[x+1][y].type != 2) {
-      result.add(maze[x+1][y]);
+  if (x-1 >= 0) {
+    if (maze[x-1][y].type != 0) {
+      result.add(maze[x-1][y]);
     }
-    if (maze[x][y+1].type != 2) {
-      result.add(maze[x][y+1]);
+  }
+  if (y-1 >= 0) {
+    if (maze[x][y-1].type != 0) {
+      result.add(maze[x][y-1]);
     }
-  } else if (x == 0 && y == (height/cellSize)/2-1) {
+  }
+  if (x+1 <= arrayWidth-1) {
     if (maze[x+1][y].type != 0) {
       result.add(maze[x+1][y]);
     }
-    if (maze[x][y-1].type != 0) {
-      result.add(maze[x][y-1]);
-    }
-  } else if (x == (height/cellSize)/2-1 && y == 0) {
-    if (maze[x-1][y].type != 0) {
-      result.add(maze[x-1][y]);
-    }
+  }
+  if (y+1 <= arrayHeight-1) {
     if (maze[x][y+1].type != 0) {
       result.add(maze[x][y+1]);
-    }
-  } else if (x == (height/cellSize)/2-1 && y == (height/cellSize)/2-1) {
-    if (maze[x-1][y].type != 0) {
-      result.add(maze[x-1][y]);
-    }
-    if (maze[x][y-1].type != 0) {
-      result.add(maze[x][y-1]);
-    }
-  } else if (x == 0) {
-    if (maze[x+1][y].type != 0) {
-      result.add(maze[x+1][y]);
-    }
-    if (maze[x][y+1].type != 0) {
-      result.add(maze[x][y+1]);
-    }
-    if (maze[x][y-1].type != 0) {
-      result.add(maze[x][y-1]);
-    }
-  } else if (x == (height/cellSize)/2-1) {
-    if (maze[x-1][y].type != 0) {
-      result.add(maze[x-1][y]);
-    }
-    if (maze[x][y+1].type != 0) {
-      result.add(maze[x][y+1]);
-    }
-    if (maze[x][y-1].type != 0) {
-      result.add(maze[x][y-1]);
-    }
-  } else if (y == 0) {
-    if (maze[x+1][y].type != 0) {
-      result.add(maze[x+1][y]);
-    }
-    if (maze[x-1][y].type != 0) {
-      result.add(maze[x-1][y]);
-    }
-    if (maze[x][y+1].type != 0) {
-      result.add(maze[x][y+1]);
-    }
-  } else if (y == (height/cellSize)/2-1) {
-    if (maze[x+1][y].type != 0) {
-      result.add(maze[x+1][y]);
-    }
-    if (maze[x-1][y].type != 0) {
-      result.add(maze[x-1][y]);
-    }
-    if (maze[x][y-1].type != 0) {
-      result.add(maze[x][y-1]);
-    }
-  } else {
-    if (maze[x+1][y].type != 0) {
-      result.add(maze[x+1][y]);
-    }
-    if (maze[x-1][y].type != 0) {
-      result.add(maze[x-1][y]);
-    }
-    if (maze[x][y+1].type != 0) {
-      result.add(maze[x][y+1]);
-    }
-    if (maze[x][y-1].type != 0) {
-      result.add(maze[x][y-1]);
     }
   }
   return result;
